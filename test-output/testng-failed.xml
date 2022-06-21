@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browser" value="ie"/>
+  <listeners>
+    <listener class-name="org.tng.FullyAuto"/>
+  </listeners>
+  <test name="Test1">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="org.tng.CrossBrowser"/>
+    </classes>
+  </test> <!-- Test1 -->
+  <test name="Test2">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="org.tng.CrossBrowser"/>
+    </classes>
+  </test> <!-- Test2 -->
+  <test name="Test3">
+    <parameter name="browser" value="ie"/>
+    <classes>
+      <class name="org.tng.CrossBrowser"/>
+    </classes>
+  </test> <!-- Test3 -->
+  <test name="Test3(failed)" parallel="tests">
+    <parameter name="browser" value="ie"/>
+    <classes>
+      <class name="org.tng.CrossBrowser">
+        <methods>
+          <include name="browserTest" invocation-numbers="0 0 0 0"/>
+        </methods>
+      </class> <!-- org.tng.CrossBrowser -->
+    </classes>
+  </test> <!-- Test3(failed) -->
+</suite> <!-- Failed suite [Suite] -->
